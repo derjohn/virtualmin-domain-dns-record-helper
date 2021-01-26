@@ -1,0 +1,8 @@
+# Rename this file to .envrc
+# And fill in your values
+# Then install package "direnv" and do a direnv allow
+export DOMID=1234567890
+export ENDPOINT=https://virtualmin.example.com
+export VUSER=hostingdomain.example
+export VPASS=verysecret
+

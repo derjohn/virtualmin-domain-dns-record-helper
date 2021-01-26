@@ -21,9 +21,14 @@ The DOMID is the ID of the domain, you can see that number in the GUI panel "vir
 
 ## Example usage
 ```
+make clean
 make sessionauth
 make saverecord RECORDTYPE=A RECORDNAME=example RECORDVALUE=127.0.0.1
 make saverecord RECORDTYPE=TXT RECORDNAME=example RECORDVALUE=schooschoo
 make saverecord RECORDTYPE=A RECORDNAME=example RECORDVALUE=127.0.0.1 DOMID=987654321
+make deleterecord RECORDTYPE=A RECORDVALUE=127.0.0.2 RECORDNAME=delme.example.com. # Yes, this needs to be the full name with dot.
 ```
+
+## Using with curl-only
+If you comment out the .SILENT target in the Makefile, you can see the rendered curl commands when executing make an steal the output for your own scripting.
 

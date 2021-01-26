@@ -4,6 +4,7 @@ Update DNS Records via http(s) without having master user API access. A virtual 
 ## Requirements
 * curl
 * make
+* dig
 * (optional) direnv
 
 ## Setup
@@ -27,6 +28,8 @@ make saverecord RECORDTYPE=A RECORDNAME=example RECORDVALUE=127.0.0.1
 make saverecord RECORDTYPE=TXT RECORDNAME=example RECORDVALUE=schooschoo
 make saverecord RECORDTYPE=A RECORDNAME=example RECORDVALUE=127.0.0.1 DOMID=987654321
 make deleterecord RECORDTYPE=A RECORDVALUE=127.0.0.2 RECORDNAME=delme.example.com. # Yes, this needs to be the full name with dot.
+make fetchrecordvalue RECORDNAME=delme.exeample.com.
+make deleterecord RECORDNAME=delme.example.com. RECORDTYPE=A RECORDVALUE=127.0.0.2 # Type A record is default
 ```
 
 ## Using with curl-only

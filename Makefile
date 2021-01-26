@@ -8,6 +8,7 @@ RECORDNAME ?=
 RECORDVALUE ?=
 RECORDCOMMENT ?= virtualmin-domain-dns-record-helper
 TMPFILE ?= ./sessionauth
+NAMESERVER ?= @8.8.8.8 # Set this to you own virtualmin nameserver address to see updates faster / avoid DNS caching
 
 default: help
 .SILENT: # don't expose password on shell
@@ -33,6 +34,9 @@ deleterecord: ## RECORDTYPE={A,TXT,CNAME} RECORDNAME=<recordname FQDN style with
 	--data-urlencode d=$(RECORDNAME)/$(RECORDTYPE)/$(RECORDVALUE) \
 	--data-urlencode type=$(RECORDTYPE) \
 	--data-urlencode delete=delme
+
+fetchrecordvalue: ## RECORDTYPE={A,TXT,CNAME} RECORDNAME=<recordname FQDN style with dot at the end>
+	dig +short -t $(RECORDTYPE) $(NAMESERVER) $(RECORDNAME)
 
 clean: ## Removes the session auth file
 	rm $(TMPFILE)

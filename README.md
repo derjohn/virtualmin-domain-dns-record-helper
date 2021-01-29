@@ -1,4 +1,4 @@
-# virtualmin-domain-dns-records-helper
+# virtualmin-domain-dns-record-helper
 Update DNS Records via http(s) without having master user API access. A virtual server admin account is sufficient to perform DNS record updates. So if you just booked a virtual server from some hosting provider that uses virtualmin and you want shell access to your DNS records (e.g. for letsencrypt DNS challenge integration), then this helper if for you.
 
 ## Requirements
